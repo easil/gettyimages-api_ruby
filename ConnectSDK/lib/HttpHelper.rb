@@ -3,6 +3,7 @@ require 'uri'
 require 'json'
 require 'rbconfig'
 require_relative 'ConnectSDK/version'
+require_relative 'ConnectSDKError'
 
 class Connect_Api_Host
 	API_HOST = "connect.gettyimages.com"
@@ -82,9 +83,9 @@ class HttpHelper
 		resp = https.request connect_request
 		# puts "HTTP RESPONSE: #{resp}"
 
-		 if !resp.is_a?(Net::HTTPSuccess)
-			raise "HTTP RESPONSE: #{resp}"
-		end
+    if !resp.is_a?(Net::HTTPSuccess)
+      raise ConnectSDKError.new(resp.message)
+    end
 
 		return JSON.parse(resp.body)
 

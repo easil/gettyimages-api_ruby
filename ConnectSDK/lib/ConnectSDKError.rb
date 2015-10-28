@@ -1,0 +1,1 @@
+class ConnectSDKError < StandardError; end
