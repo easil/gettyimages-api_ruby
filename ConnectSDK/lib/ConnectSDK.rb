@@ -8,6 +8,7 @@ require_relative "Credentials"
 require_relative "SearchRequest"
 require_relative "ImagesRequest"
 require_relative "DownloadRequest"
+require_relative "ConnectSDKError"
 
 # ConnectSDK
 # Provides a code api for interacting with getty rest services.
